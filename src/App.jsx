@@ -4,12 +4,17 @@ import Projects from "./Components/Projects"
 import Contact from "./Components/Contact"
 
 export default function App() {
+  let search = window.location.search 
+  if(search.split("?")[1] == "portfolio"){
+    window.location.replace('https://todolist-production-35cc.up.railway.app/');
+  }
+  
   return (
-    <div className="bg-[#A48E92] h-full">
+    <div className="grid place-items-center font-montserrat">
         <Home />
         <About />
-        {/* <Projects />
-        <Contact /> */}
+        <Projects />
+        <Contact />
     </div>
   )
 }
