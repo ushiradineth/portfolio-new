@@ -9,6 +9,42 @@ module.exports = {
       fontFamily: {
         'montserrat': ['Montserrat']
       },
+      animation: {
+        "nav-animation": "nav-animation 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+        "project-animation": "project-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+      },
+      keyframes: {
+        "nav-animation": {
+          "0%": {
+            transform: "scaleY(0.4)",
+            "transform-origin": "100% 0%"
+          },
+          "10%": {
+            transform: "scaleY(1)",
+            "transform-origin": "100% 0%"
+          },
+          "90%": {
+            transform: "scaleY(1)",
+            "transform-origin": "100% 0%",
+            opacity: 100
+          },
+          to: {
+            transform: "scaleY(0)",
+            "transform-origin": "100% 0%",
+            opacity: 0
+          }
+        },
+        "project-animation": {
+          "0%": {
+            transform: "scaleY(0.95)",
+            "transform-origin": "100% 0%"
+          },
+          "100%": {
+            transform: "scaleY(1)",
+            "transform-origin": "100% 0%"
+          }
+        },
+      }
     },
   },
   plugins: [],
