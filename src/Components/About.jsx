@@ -1,8 +1,8 @@
 import React from 'react'
 
-function About() {
+function About({ scrollRef }) {
   return (
-    <div id="About" className="flex items-center flex-col h-[1024px] w-[1440px] bg-[#A48E92]">
+    <div id="About" ref={scrollRef} className="flex flex-col items-center">
       <div className="flex justify-center font-bold text-[48px] tracking-[0.315em] mt-[60px]">ABOUT ME</div>
       <div className="h-[757px] w-[1169px] mt-[75px] grid grid-col-2 gap-[139px] grid-flow-col place-content-start">
         <div>
