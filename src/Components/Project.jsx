@@ -3,13 +3,13 @@ import githubIcon from '/src/Assets/github.svg'
 import websiteIcon from '/src/Assets/website.svg'
 
 function Project({ preview, name, caption, description, github, website }) {
-  const [isHover, setIsHover] = useState(false);
+  const [isCardClick, setCardClick] = useState(false);
 
   return <>
         
-      {!isHover ? ( 
-        <div id="card" className="h-[389px] w-[575px] rounded-[40px] bg-[#D9D9D9]" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} onClick={() => setIsHover(!isHover)}>
-          <img id="preview" className="h-[259px] w-[515px] rounded-[20px] bg-[#CEA9A9] mt-[26px] ml-[30px]" src={preview}></img>
+      {!isCardClick ? ( 
+        <div id="card" className="h-[389px] w-[575px] rounded-[40px] bg-[#D9D9D9] cursor-pointer" onClick={() => setCardClick(!isCardClick)}>
+          <img id="preview" className="h-[259px] w-[515px] rounded-[20px] bg-white ml-[30px] mt-[26px] border object-cover object-top" src={preview}></img>
           <div className="flex flex-row">
             <div id="info" className="text-[20px] ml-[30px] w-[390px]">
               <div className="font-bold mt-[21px]">{name}</div>
@@ -26,8 +26,8 @@ function Project({ preview, name, caption, description, github, website }) {
           </div>
         </div>
       ) : (
-        <div id="card" className="h-auto w-[575px] rounded-[40px] bg-[#CEA9A9] motion-safe:animate-project-animation" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} onClick={() => setIsHover(!isHover)}>
-            <img id="preview" className="h-[259px] w-[515px] rounded-[20px] bg-[#CEA9A9] ml-[30px] mt-[26px]" src={preview}></img>
+        <div id="card" className="h-auto w-[575px] rounded-[40px] bg-[#CEA9A9] motion-safe:animate-project-animation cursor-pointer" onClick={() => setCardClick(!isCardClick)}>
+            <img id="preview" className="w-[90%] rounded-[20px] bg-[#CEA9A9] ml-[30px] mt-[26px]" src={preview}></img>
             <div className="flex flex-row">
               <div id="info" className="text-[20px] ml-[30px] mb-[20px] w-[390px]">
                 <div className="font-bold mt-[21px]">{name}</div>

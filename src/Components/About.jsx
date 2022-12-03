@@ -1,14 +1,39 @@
-import React from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
+import { useInView } from "react-intersection-observer"
 
-function About({ scrollRef }) {
+export default function About({ scrollRef }) {
+  const ref = useRef()
+  const { ref:inViewRef, inView:isAbout } = useInView({ threshold: 0 })
+
+  const setRefs = useCallback(
+    (node) => {
+      ref.current = node
+      scrollRef.current = node
+      inViewRef(node)
+    },
+    [inViewRef],
+  );
+
+  useEffect(() => {
+    const aboutNode = ref.current
+    if (isAbout) {
+      aboutNode.classList.add("animate-fadeIn")
+    } else {
+      aboutNode.classList.remove("animate-fadeIn")
+      aboutNode.classList.add("opacity-0")
+    }
+  });
+  
   return (
-    <div id="About" ref={scrollRef} className="flex flex-col items-center">
+    <div id="About" ref={setRefs} className={"flex flex-col items-center mb-[60px]"}>
       <div className="flex justify-center font-bold text-[48px] tracking-[0.315em] mt-[60px]">ABOUT ME</div>
       <div className="h-[757px] w-[1169px] mt-[75px] grid grid-col-2 gap-[139px] grid-flow-col place-content-start">
         <div>
-          <div id="description" className="h-[338px] w-[511px] font-normal text-[20px] mt-[69px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sollicitudin aliquet scelerisque. Vivamus accumsan dapibus augue eget volutpat. Praesent pulvinar sem vel ex tristique laoreet. Maecenas eget justo at ligula efficitur rutrum sed nec enim. Nulla fringilla sit amet justo et malesuada. Sed vel eros diam. Nullam sollicitudin pharetra diam ac venenatis. Proin non arcu ipsum. Aenean sagittis congue dolor, ac semper nibh cursus vel. Curabitur et lacus laoreet, pharetra ex eget, porttitor nisl. Cras ultrices vel urna ac auctor.
-          </div>
+          <div id="description" className="grid grid-flow-row h-[338px] w-[511px] text-[20px] mt-[69px] font-medium text-center">
+            <div>Hi! I’m Ushira Dineth, an undergraduate based in Sri Lanka.</div>
+            <div>Currently, I have 3+ years of experience with programming and 1 year of experience with web development.</div>
+            <div>I would like to describe myself as a highly versitile and adaptive person who enjoy working in a team or independently</div>
+        </div>
           <div id="technologies" className="font-medium text-[32px] tracking-[0.315em] mt-[95px] flex justify-center">MY TECHNOLOGIES</div>
             <div className="grid grid-flow-col place-items-center font-bold text-[20px] mt-[32px]">
               <h1 className="border-solid border-2 border-black px-3 rounded-3xl">React</h1>
@@ -35,5 +60,3 @@ function About({ scrollRef }) {
     </div>
   )
 }
-
-export default About

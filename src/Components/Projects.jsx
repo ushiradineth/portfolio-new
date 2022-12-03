@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { useEffect, useRef, useCallback } from 'react'
+import { useInView } from "react-intersection-observer"
 import Project from './Project'
+import celiao from '/src/Assets/celiao.svg'
 
 function Projects({ scrollRef }) {
+  const ref = useRef()
+   const { ref:inViewRef, inView:isAbout } = useInView({ threshold: 0 })
+ 
+   const setRefs = useCallback(
+     (node) => {
+       ref.current = node
+       scrollRef.current = node
+       inViewRef(node)
+     },
+     [inViewRef],
+   );
+ 
+   useEffect(() => {
+     const aboutNode = ref.current
+     if (isAbout) {
+       aboutNode.classList.add("animate-fadeIn")
+     } else {
+       aboutNode.classList.remove("animate-fadeIn")
+       aboutNode.classList.add("opacity-0")
+     }
+   });
+
   return (
-    <div id="Projects" ref={scrollRef} className="flex flex-col items-center">
-      <div className="flex justify-center font-bold text-[48px] tracking-[0.315em] mt-[60px]">PROJECTS</div>
+    <div id="Projects" ref={setRefs} className="flex flex-col items-center mt-[120px] mb-[30px]">
+      <div className="flex justify-center font-bold text-[48px] tracking-[0.315em]">PROJECTS</div>
       <div className="flex flex-row gap-[96px] mt-[75px]">
         <Project 
           preview="https://media.techeblog.com/images/funny-cat-logic.jpg" 
@@ -18,6 +42,7 @@ function Projects({ scrollRef }) {
           github="https://github.com/ushiradineth/clonegram" 
           website="https://ushiradineth.github.io/?clonegram" 
         />
+
         <Project 
           preview="https://media.techeblog.com/images/funny-cat-logic.jpg" 
           name="Todolist" 
@@ -33,7 +58,7 @@ function Projects({ scrollRef }) {
       </div>
       <div className="flex flex-row gap-[96px] mt-[50px] mb-[50px]">
         <Project 
-          preview="https://media.techeblog.com/images/funny-cat-logic.jpg" 
+          preview={celiao}
           name="Celiao" 
           caption="Vehicle booking Android Applicaion" 
           description={[
@@ -43,6 +68,7 @@ function Projects({ scrollRef }) {
           github="https://github.com/ushiradineth/carApp" 
           website="https://github.com/ushiradineth/carApp/releases/tag/v1.0" 
         />
+
         <Project 
           preview="https://media.techeblog.com/images/funny-cat-logic.jpg" 
           name="Portrait" 

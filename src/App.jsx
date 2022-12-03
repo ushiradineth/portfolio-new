@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
+import { useInView } from "react-intersection-observer"
 import NavigationBar from "./Components/NavigationBar"
 import Home from "./Components/Home"
 import About from "./Components/About"
@@ -11,18 +12,18 @@ export default function App() {
     window.location.replace('https://todolist-production-35cc.up.railway.app/');
   }
 
-  const home = useRef()
-  const about = useRef()
-  const projects = useRef()
-  const contact = useRef()
-  
+  const home = useRef(null)
+  const about = useRef(null)
+  const projects = useRef(null)
+  const contact = useRef(null)
+
   return (
-    <div className="grid place-items-center font-montserrat bg-[#A48E92]">
-        <NavigationBar home={home} about={about} projects={projects} contact={contact} />
-        <Home scrollRef={home} />
-        <About scrollRef={about} />
-        <Projects scrollRef={projects} />
-        <Contact scrollRef={contact} />
+    <div className="grid place-items-center font-montserrat bg-[#A48E92] scroll-smooth">
+      <NavigationBar home={home} about={about} projects={projects} contact={contact} />
+      <Home scrollRef={home} />
+      <About scrollRef={about} />
+      <Projects scrollRef={projects} />
+      <Contact scrollRef={contact} />
     </div>
   )
 }

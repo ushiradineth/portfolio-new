@@ -12,6 +12,7 @@ module.exports = {
       animation: {
         "nav-animation": "nav-animation 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
         "project-animation": "project-animation 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+        fadeIn: "fadeIn 0.5s ease-in forwards"
       },
       keyframes: {
         "nav-animation": {
@@ -44,6 +45,14 @@ module.exports = {
             "transform-origin": "100% 0%"
           }
         },
+        fadeIn: {
+          "0%": { 
+            opacity: 0
+          },
+          "100%": { 
+            opacity: 1
+          }
+        }
       }
     },
   },

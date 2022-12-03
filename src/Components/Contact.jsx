@@ -3,7 +3,7 @@ import arrow from '/src/Assets/arrow.svg'
 
 function Contact({ scrollRef }) {
   return (
-    <div id="Contact" ref={scrollRef} className="h-[282px] w-full bg-[#191A1E]">
+    <div id="Contact" ref={scrollRef} className="h-[282px] w-full bg-[#191A1E] z-10">
       <div className="flex flex-col items-center">
         <a className="flex flex-row mt-[50px]" href="mailto:ushiradineth@gmail.com">
           <div className="font-bold text-[40px] text-white">USHIRADINETH@GMAIL.COM</div>
