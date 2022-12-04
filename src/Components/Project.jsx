@@ -6,7 +6,6 @@ function Project({ preview, name, caption, description, github, website }) {
   const [isCardClick, setCardClick] = useState(false);
 
   return <>
-        
       {!isCardClick ? ( 
         <div id="card" className="h-[389px] w-[575px] rounded-[40px] bg-[#D9D9D9] cursor-pointer" onClick={() => setCardClick(!isCardClick)}>
           <img id="preview" className="h-[259px] w-[515px] rounded-[20px] bg-white ml-[30px] mt-[26px] border object-cover object-top" src={preview}></img>
