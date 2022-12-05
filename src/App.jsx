@@ -25,7 +25,7 @@ export default function App() {
   const [active, setActive] = useState();
 
   return (
-    <div className="grid place-items-center font-montserrat bg-[#A48E92] scroll-smooth">
+    <div className="grid place-items-center font-montserrat bg-[#858585] scroll-smooth">
       <NavigationBar home={home} about={about} projects={projects} contact={contact} active={active} setActive={setActive} />
       <Home scrollRef={home} setActive={setActive} view={isHomeRef} viewRef={isHome} />
       <About scrollRef={about} setActive={setActive} view={isAboutRef} viewRef={isAbout} />
