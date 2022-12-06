@@ -25,9 +25,9 @@ export default function About({ scrollRef, setActive, view, viewRef }) {
   }, [setActive, viewRef]);
 
   return (
-    <div id="About" ref={setRefs} className="flex flex-col items-center w-[390px] lg:w-[1440px] lg:my-[60px] lg:px-[75px] py-[25px] lg:py-[75px] bg-white rounded-2xl shadow-xl white">
-      <div className="flex justify-center font-bold text-[20px] lg:text-[48px] mb-[10px] lg:mb-0 tracking-[0.315em]">ABOUT ME</div>
-      <div className="grid grid-row-2 gap-[16px] place-items-center lg:hidden">
+    <div id="About" ref={setRefs} className="flex flex-col items-center w-[90%] 2xl:my-[60px] 2xl:px-[75px] py-[25px] 2xl:py-[75px] bg-white rounded-2xl shadow-xl white">
+      <div className="flex justify-center font-bold text-[20px] 2xl:text-[48px] lg:mb-[10px] tracking-[0.315em]">ABOUT ME</div>
+      <div className="grid grid-row-2 gap-[16px] mt-[10px] place-items-center 2xl:hidden">
         <div id="description" className="grid grid-flow-row gap-[12px] w-[152px] text-[10px] font-medium text-center">
           <div>Hi! I’m Ushira Dineth, an undergraduate based in Sri Lanka.</div>
           <div>Currently, I have 3+ years of experience with programming and 1 year of experience with web development.</div>
@@ -61,7 +61,7 @@ export default function About({ scrollRef, setActive, view, viewRef }) {
           </div>
         </div>
       </div>
-      <div className="lg:grid grid-flow-col gap-[135px] place-items-start mt-[75px] hidden lg:visible">
+      <div className="2xl:grid grid-flow-col gap-[135px] place-items-start mt-[75px] hidden 2xl:visible">
         <div className="grid grid-flow-row">
           <div id="description" className="grid grid-flow-row gap-[12px] h-[338px] w-[511px] text-[20px] mt-[69px] font-medium text-center">
             <div>Hi! I’m Ushira Dineth, an undergraduate based in Sri Lanka.</div>

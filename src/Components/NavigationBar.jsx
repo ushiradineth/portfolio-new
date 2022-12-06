@@ -76,7 +76,7 @@ function NavigationBar({ home, about, projects, contact, active, setActive }) {
   };
 
   return (
-    <div id="container" className={"flex justify-center top-[40%] left-10 fixed h-auto w-20 bg-black rounded-full z-20"}>
+    <div id="container" className={"flex justify-center top-[40%] left-10 fixed h-auto w-20 bg-black rounded-full z-20 invisible sm:visible"}>
       <div id="navbar-items" className="grid place-items-center font-bold text-[32px] bg-black py-10">
         <div className="cursor-pointer text-white " ref={homeDivRef} onClick={homeClick}>
           •
